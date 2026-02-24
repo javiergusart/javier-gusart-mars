@@ -157,6 +157,71 @@ section {
   color: #ffffff;
 }
 
+/* Leave a Message */
+
+#leave-message form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#leave-message label {
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+#leave-message input,
+#leave-message textarea {
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border: 1px solid #64b5f6;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 1rem;
+}
+
+#leave-message textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#leave-message button,
+#messages button {
+  align-self: flex-start;
+  background-color: #0d47a1;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#leave-message button:hover,
+#messages button:hover {
+  background-color: #1565c0;
+}
+
+#messages ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#messages li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+#messages a {
+  color: #64b5f6;
+  font-weight: 600;
+}
+
 /* Tablet styles */
 @media (max-width: 900px) {
   body {
@@ -182,6 +247,16 @@ section {
   #Connect a {
     padding: 10px 20px;
     font-size: 0.95em;
+  }
+
+  #leave-message input,
+  #leave-message textarea {
+    padding: 12px;
+  }
+
+  #leave-message button,
+  #messages button {
+    padding: 12px 18px;
   }
 }
 
@@ -215,5 +290,12 @@ section {
   #skills ul {
     flex-direction: column;
     align-items: center;
+  }
+
+  #leave-message input,
+  #leave-message textarea,
+  #leave-message button,
+  #messages button {
+    width: 100%;
   }
 }
