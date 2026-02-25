@@ -90,3 +90,46 @@ messageForm.addEventListener("submit", (event) => {
 
   messageForm.reset();
 });
+
+fetch("https://api.github.com/users/javiergusart/repos")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`GitHub request failed: ${response.status}`);
+    }
+
+    return response.json();
+  })
+  .then((data) => {
+    const repositories = data;
+    console.log(repositories);
+
+    const projectSection = document.querySelector("#Projects");
+    const projectList = projectSection.querySelector("ul");
+
+    projectList.innerHTML = "";
+
+    for (let i = 0; i < repositories.length; i += 1) {
+      const project = document.createElement("li");
+
+      const projectLink = document.createElement("a");
+      projectLink.href = repositories[i]["html_url"];
+      projectLink.innerText = repositories[i]["name"];
+      projectLink.target = "_blank";
+      projectLink.rel = "noopener noreferrer";
+
+      project.appendChild(projectLink);
+      projectList.appendChild(project);
+    }
+  })
+  .catch((error) => {
+    console.error("Unable to load repositories:", error);
+
+    const projectSection = document.querySelector("#Projects");
+    const projectList = projectSection.querySelector("ul");
+    projectList.innerHTML = "";
+
+    const errorItem = document.createElement("li");
+    errorItem.innerText =
+      "Unable to load projects right now. Please try again later.";
+    projectList.appendChild(errorItem);
+  });
