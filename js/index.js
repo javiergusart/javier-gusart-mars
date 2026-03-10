@@ -1,3 +1,4 @@
+// Footer copyright
 const today = new Date();
 const thisYear = today.getFullYear();
 
@@ -10,6 +11,7 @@ const copyright = document.createElement("p");
 copyright.innerHTML = `\u00A9 ${thisYear} Javier Gusart`;
 footerFromDom.appendChild(copyright);
 
+// Skills list from array
 const skills = [
   "JavaScript",
   "HTML",
@@ -29,6 +31,7 @@ for (let i = 0; i < skills.length; i += 1) {
   skillsList.appendChild(skill);
 }
 
+// Leave a message form and message actions
 const messageForm = document.querySelector('form[name="leave_message"]');
 const messageSection = document.querySelector("#messages");
 const messageList = messageSection.querySelector("ul");
@@ -91,6 +94,7 @@ messageForm.addEventListener("submit", (event) => {
   messageForm.reset();
 });
 
+// GitHub projects from API
 fetch("https://api.github.com/users/javiergusart/repos")
   .then((response) => {
     if (!response.ok) {
